@@ -120,6 +120,20 @@ void pth_err_msg(const char *fmt, ...)
 }
 
 /*
+ * Fatal error unrelated to a system call.
+ * Print a message and terminate.
+ */
+void pth_err_quit(const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	err_doit(0, 0, fmt, ap);
+	va_end(ap);
+	exit(1);
+}
+
+/*
  * Print a message and return to caller.
  * Caller specifies "errnoflag".
  */

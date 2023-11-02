@@ -10,6 +10,7 @@ void err_quit(const char *fmt, ...);
 
 void pth_err_exit(int error, const char *fmt, ...);
 void pth_err_msg(const char *fmt, ...);
+void pth_err_quit(const char *fmt, ...);
 
 #define ERR_RET(fmt, args...)		err_ret("*ERR* %s[%d]: " fmt, __FILE__, __LINE__, ## args)
 #define ERR_SYS(fmt, args...)		err_sys("*ERR* %s[%d]: " fmt, __FILE__, __LINE__, ## args)
@@ -20,6 +21,7 @@ void pth_err_msg(const char *fmt, ...);
 
 #define PTH_ERR_EXIT(error, fmt, args...)	pth_err_exit(error, "*ERR* %s[%d]: " fmt, __FILE__, __LINE__, ## args)
 #define PTH_ERR_MSG(fmt, args...)		pth_err_msg("*ERR* %s[%d]: " fmt, __FILE__, __LINE__, ## args)
+#define PTH_ERR_QUIT(fmt, args...)		pth_err_quit("*ERR* %s[%d]: " fmt, __FILE__, __LINE__, ## args)
 
 #ifdef __DEEPDBG__
 #define DBG(fmt, args...)		err_msg("*DBG* %s[%d] -> " fmt, __FILE__, __LINE__, ## args)

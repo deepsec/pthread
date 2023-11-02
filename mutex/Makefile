@@ -6,11 +6,14 @@ LIBS := -L/usr/local/lib -L/usr/lib -L. -L../common -pthread
 COMMON_SRCS := ../common/error.c
 COMMON_OBJS := $(subst .c,.o, $(COMMON_SRCS))
 
-EXEC := mutex
+EXEC := mutex mutex_incr
 
 all: $(EXEC)
 	
 mutex: mutex.o $(COMMON_OBJS)
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $^ $(LIBS)
+
+mutex_incr: mutex_incr.o $(COMMON_OBJS)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $^ $(LIBS)
 
 testso: test.o
