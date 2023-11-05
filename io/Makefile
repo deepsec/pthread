@@ -6,7 +6,7 @@ LIBS := -L/usr/local/lib -L/usr/lib -L. -L../common -pthread
 COMMON_SRCS := ../common/error.c
 COMMON_OBJS := $(subst .c,.o, $(COMMON_SRCS))
 
-EXEC := fcopy
+EXEC := copy fcopy
 
 all: $(EXEC)
 	

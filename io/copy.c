@@ -44,6 +44,11 @@ int main(int argc, char *argv[])
             err_sys("couldn't write whole buffer");
         }
     } 
+    
+    if (fsync(outputFd) == -1) {
+        err_sys("fsync error");
+    }
+
     if (close(inputFd) == -1) {
         err_sys("close inputFd['%d'] error", inputFd);
     };
