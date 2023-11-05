@@ -51,5 +51,7 @@ int main(int argc, char *argv[])
         err_sys("close outputFd['%d'] error", outputFd);
     };
 
+#include <stdio.h>
+    printf("BUFSIZ[%d]\n", BUFSIZ);
     return 0;
 }
